@@ -10,6 +10,10 @@ class Pokedex {
         this.pokedex.push(newPokemon)
         return newPokemon
     }
+
+    all() {
+        return this.pokedex
+    }
 }
 
 module.exports = Pokedex;

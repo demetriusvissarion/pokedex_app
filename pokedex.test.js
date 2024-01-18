@@ -10,26 +10,27 @@ describe('Pokedex', () => {
         });
     });
 
-    // it('catches jigglypuff', (done) => {
-    //     const pokedex  = new Pokedex();
+    it('catches jigglypuff', (done) => {
+        const pokedex  = new Pokedex();
 
-    //     pokedex.catch('jigglypuff')
-    //     .then((pokemon) => {
-    //         expect(pokemon.name).toEqual('jigglypuff');
-    //         done();
-    //     });
-    // });
+        pokedex.catch('jigglypuff').then((pokemon) => {
+            expect(pokemon.name).toEqual('jigglypuff');
+            done();
+        });
+    });
 
-    // it('catches pokemons and adds them to the pokedex', (done) => {
-    //     const pokedex  = new Pokedex();
+    it('catches 2 pokemons and adds them to the pokedex', (done) => {
+        const pokedex  = new Pokedex();
 
-    //     pokedex.catch('pikachu');
-    //     pokedex.catch('jigglypuff');
+        pokedex.catch('pikachu');
+        pokedex.catch('jigglypuff');
 
-    //     pokedex.all().then((pokedex) => {
-    //         expect(pokedex.length).toEqual(2);
-    //         done();
-    //     });
-    // });
+        expect(pokedex.all().length).toEqual(2);
+
+        pokedex.all()[1].then((pokemon) => {
+            expect(pokemon.name).toEqual('jigglypuff');
+            done();
+        });
+    });
 });
 
